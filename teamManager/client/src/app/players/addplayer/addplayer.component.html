@@ -1,0 +1,13 @@
+<div> 
+<h2><a href="/dashboard">Dashboard</a> | <a href="/addplayer">Add Player</a></h2>
+
+<form #addplayerForm='ngForm' (submit)="create_player()">
+	<p>Player Name: <input type="text" name="name" [(ngModel)]="new_player.name" required minlength="2"></p>
+	<p>Preferred Position: <input type="text" name="position" [(ngModel)]="new_player.position"></p>
+	<p><input type="submit" name="" value="ADD" [disabled]="!addplayerForm.valid"></p>
+</form>
+
+<p><a href="/logout">Logout</a></p>
+</div>
+
+{{ new_player | json }}

@@ -1,0 +1,22 @@
+<h2><a href="/dashboard">Dashboard</a> | <a href="/addplayer">Add Player</a></h2>
+<table>
+	<tr>
+		<th>Player Name</th>
+		<th>Preferred Position</th>
+		<th>Action</th>
+	</tr>
+
+	<tr *ngFor="let player of players">
+		<td> {{player.name}}</td>
+		<td> {{player.position}}</td>
+		<td><button [ngClass]="{'red': true}" (click)="destroy(player._id)">Delete</button></td>
+		<!-- <td>{{player._id}}</td> -->
+	</tr>
+		
+</table>
+
+<p><a href="/logout">Logout</a></p>
+
+
+
+{{ player | json }}
