@@ -1,0 +1,43 @@
+<div>
+	<h1> New Question</h1>
+
+	<form #questionForm="ngForm" (submit)="add_question()">
+
+	<p>Question: <input type="text" name="question" 
+		[(ngModel)]="new_question.question" 
+		required 
+		minlength="15" 
+		#question="ngModel"/>
+
+    <span *ngIf="!question.valid">Question needs to be at least 15 characters long.</span>
+
+
+    <p>Answer: <input type="text" name="answer" 
+    [(ngModel)]="new_question.answer" 
+    required 
+    minlength="1" 
+    #answer="ngModel"/>
+
+    <span *ngIf="!answer.valid">Answer is required!!!</span>
+
+    <p>Fake Answer 1: <input type="text" name="fake1" 
+    [(ngModel)]="new_question.fake1" 
+    required 
+    minlength="1" 
+    #fake1="ngModel"/>
+
+    <span *ngIf="!fake1.valid">Fake answer is required!!!</span>
+
+     <p>Fake Answer 2: <input type="text" name="fake2" 
+    [(ngModel)]="new_question.fake2" 
+    required 
+    minlength="1" 
+    #fake2="ngModel"/>
+
+    <span *ngIf="!fake2.valid">Fake answer is required!!!</span>
+ 
+	<p><input type="submit"  value="Add Question" [disabled]="!questionForm.valid"></p>
+    <a href="/dashboard"><button>Cancel</button></a>
+	</form>
+
+</div>

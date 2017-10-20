@@ -1,0 +1,32 @@
+<h3> Player Dashboard</h3>
+
+{{ user }}
+
+
+<div class="buttondiv">
+	<a href="/lets_play"><button class="playbutton">PLAY!</button></a>
+	<p>Click the button above to start the trivia game</p>
+</div>
+
+
+
+<div>
+<p>Search Users: <input type="text" name="search" [(ngModel)]="search" placeholder="Search...."></p>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Score</th>
+		<th>Percentage</th>
+		<th>Delete</th>
+	</tr>
+
+	<tr *ngFor="let user of users | filter: search">
+		
+		<td> {{ user.name }}</td>
+		<td> {{ user.score }} </td>
+		<td> Percentage </td>	
+		<td><button (click)="destroy(user._id)">Delete</button></td>
+
+		</tr>
+		
+</table>

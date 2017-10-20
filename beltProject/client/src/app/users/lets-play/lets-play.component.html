@@ -1,0 +1,27 @@
+<h3> Let's Play </h3>
+<p><a [routerLink]="['login']">Login</a> | <a href="/logout">Logout</a></p>
+
+<p>Hi, {{ user }}</p>
+<p>Choose an answer for each of the questions and submit the test once done. Good Luck!</p>
+<form>
+<div *ngFor= "let question of questions; let idx = index"> 
+
+<form #gameForm='ngForm' (submit)="results()">
+	
+	{{ idx + 1 }}. {{question.question}}<br>
+	<input type="radio" name="answer" value="answer"> {{question.answer}}<br>
+	<input type="radio" name="answer" value="fake1"> {{question.fake1}}<br>
+	<input type="radio" name="answer" value="fake2"> {{question.fake2}}
+
+</form>
+	
+</div>
+<input type="submit" value="Submit" >
+<a href="/dashboard"><button>Cancel</button></a> 
+</form>
+		
+
+<!-- </p><ng-template [ngIf]="idx <3">
+	</ng-template> -->
+
+
